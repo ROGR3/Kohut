@@ -43,8 +43,9 @@ exports.generate = async function generate(arguments) {
         }
       }
       date = `${year}-${month}-${day}`
+      console.log(date)
       if (letters[splittedWord[i]][j]) {
-        for (let k = 0; k < 1; ++i) {
+        for (let k = 0; k < 1; ++k) {
           fs.writeFileSync("fileName", JSON.stringify(Math.random()))
           execSync(`git add .`);
           execSync(`git commit -m "idk what am I doing" --date="${date}"`);
@@ -53,7 +54,7 @@ exports.generate = async function generate(arguments) {
         // one commit
       } else {
         // multiple commit 
-        for (let k = 0; k < 4; ++i) {
+        for (let k = 0; k < 4; ++k) {
           fs.writeFileSync("fileName", JSON.stringify(Math.random()))
           execSync(`git add .`);
           execSync(`git commit -m "idk what am I doing" --date="${date}"`);
