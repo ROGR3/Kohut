@@ -18,6 +18,7 @@ exports.generate = async function generate(arguments) {
 
   let splittedWord = word.split("")
   for (let i = 0; i < word.length; ++i) {
+    console.log(splittedWord[i] + "  is done.")
     for (let j = 0; j < 49; ++j) {
       if (letters[splittedWord[i]][j]) {
         for (let k = 0; k < 1; ++k) {
