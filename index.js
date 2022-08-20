@@ -11,7 +11,7 @@ exports.generate = async function generate(arguments) {
   }
   console.log("Display " + word + " in year " + year)
   console.log("If you want to change or cancel, press CTRL+C. You have 10 seconds.")
-  // setTimeout(() => { }, 10000)
+  setTimeout(() => { }, 10000)
   let month = 1
   let day = calculateStartDay(word.length, month, year)
   let date = `${year}-${month}-${day}`
@@ -20,15 +20,13 @@ exports.generate = async function generate(arguments) {
   for (let i = 0; i < word.length; ++i) {
     console.log(splittedWord[i] + "  is done.")
     for (let j = 0; j < 49; ++j) {
-      if (letters[splittedWord[i]][j]) {
+      if (!letters[splittedWord[i]][j]) {
         for (let k = 0; k < 1; ++k) {
           fs.writeFileSync("fileName", JSON.stringify(Math.random()))
           execSync(`git add .`);
           execSync(`git commit -m "idk what am I doing" --date="${date}"`);
         }
-        // one commit
       } else {
-        // multiple commit 
         for (let k = 0; k < 4; ++k) {
           fs.writeFileSync("fileName", JSON.stringify(Math.random()))
           execSync(`git add .`);
@@ -80,10 +78,3 @@ function whatDay(day, month, year) {
   return date.getDay()
 }
 
-function handleMonth(day, month) {
-  switch (month) {
-    case 1:
-      month += Math.floor(day / 31)
-      day = day % 31
-  }
-}
