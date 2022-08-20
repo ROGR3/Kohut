@@ -24,7 +24,6 @@ exports.generate = async function generate(arguments) {
           fs.writeFileSync("fileName", JSON.stringify(Math.random()))
           execSync(`git add .`);
           execSync(`git commit -m "idk what am I doing" --date="${date}"`);
-          execSync(`git push`);
         }
         // one commit
       } else {
@@ -33,7 +32,6 @@ exports.generate = async function generate(arguments) {
           fs.writeFileSync("fileName", JSON.stringify(Math.random()))
           execSync(`git add .`);
           execSync(`git commit -m "idk what am I doing" --date="${date}"`);
-          execSync(`git push`);
         }
       }
       if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
@@ -62,6 +60,7 @@ exports.generate = async function generate(arguments) {
       date = `${year}-${month}-${day}`
     }
   }
+  execSync(`git push`);
 }
 
 
