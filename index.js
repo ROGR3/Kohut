@@ -19,21 +19,49 @@ exports.generate = async function generate(arguments) {
   let splittedWord = word.split("")
   for (let i = 0; i < word.length; ++i) {
     for (let j = 0; j < 49; ++j) {
+      if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
+        if (day == 31) {
+          month++
+          day = 1
+        }
+        else {
+
+          day++
+        }
+      } else if (month == 2) {
+        if (day == 28) {
+          month++
+          day = 1
+        } else {
+
+          day++
+        }
+      }
+      else {
+        if (day == 30) {
+          month++
+          day = 1
+        } else {
+
+          day++
+        }
+      }
+      date = `${year}-${month}-${day}`
       if (letters[splittedWord[i]][j]) {
         for (let k = 0; k < 1; ++i) {
           fs.writeFileSync("fileName", JSON.stringify(Math.random()))
-          exec(`git add .`);
-          exec(`git commit -m "idk what am I doing" --date="${num + i}"`);
-          exec(`git push`);
+          execSync(`git add .`);
+          execSync(`git commit -m "idk what am I doing" --date="${date}"`);
+          execSync(`git push`);
         }
         // one commit
       } else {
         // multiple commit 
         for (let k = 0; k < 4; ++i) {
           fs.writeFileSync("fileName", JSON.stringify(Math.random()))
-          exec(`git add .`);
-          exec(`git commit -m "idk what am I doing" --date="${num + i}"`);
-          exec(`git push`);
+          execSync(`git add .`);
+          execSync(`git commit -m "idk what am I doing" --date="${date}"`);
+          execSync(`git push`);
         }
       }
     }
