@@ -1,6 +1,6 @@
 const { execSync } = require('child_process');
 const fs = require("fs")
-const letters = JSON.parse(fs.readFileSync(__dirname + "/letters.json", "utf-8"))
+const letters = JSON.parse(fs.readFileSync(__dirname + "/lettersSorted.json", "utf-8"))
 
 exports.generate = async function generate(arguments) {
   const word = arguments[0]
@@ -19,6 +19,23 @@ exports.generate = async function generate(arguments) {
   let splittedWord = word.split("")
   for (let i = 0; i < word.length; ++i) {
     for (let j = 0; j < 49; ++j) {
+      if (letters[splittedWord[i]][j]) {
+        for (let k = 0; k < 1; ++k) {
+          fs.writeFileSync("fileName", JSON.stringify(Math.random()))
+          execSync(`git add .`);
+          execSync(`git commit -m "idk what am I doing" --date="${date}"`);
+          execSync(`git push`);
+        }
+        // one commit
+      } else {
+        // multiple commit 
+        for (let k = 0; k < 4; ++k) {
+          fs.writeFileSync("fileName", JSON.stringify(Math.random()))
+          execSync(`git add .`);
+          execSync(`git commit -m "idk what am I doing" --date="${date}"`);
+          execSync(`git push`);
+        }
+      }
       if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
         if (day == 31) {
           month++
@@ -43,24 +60,6 @@ exports.generate = async function generate(arguments) {
         }
       }
       date = `${year}-${month}-${day}`
-      console.log(date)
-      if (letters[splittedWord[i]][j]) {
-        for (let k = 0; k < 1; ++k) {
-          fs.writeFileSync("fileName", JSON.stringify(Math.random()))
-          execSync(`git add .`);
-          execSync(`git commit -m "idk what am I doing" --date="${date}"`);
-          execSync(`git push`);
-        }
-        // one commit
-      } else {
-        // multiple commit 
-        for (let k = 0; k < 4; ++k) {
-          fs.writeFileSync("fileName", JSON.stringify(Math.random()))
-          execSync(`git add .`);
-          execSync(`git commit -m "idk what am I doing" --date="${date}"`);
-          execSync(`git push`);
-        }
-      }
     }
   }
 }
@@ -72,7 +71,6 @@ function calculateStartDay(wordLength, month, year) {
 
   let day = Math.floor((daysInWeek - wordLength) * letterWidth / 2 * 7 + daysInWeek)
   let dayInWeek = whatDay(day, month, year)
-  console.log(day, dayInWeek)
   let startingDay = day - dayInWeek
   return startingDay
 }

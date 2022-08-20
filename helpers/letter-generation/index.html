@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #container {
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border: 1px solid;
+      display: grid;
+      grid-template-columns: auto auto auto auto auto auto auto;
+    }
+
+    .box {
+      border: 1px solid rgb(184, 184, 184);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+  </div>
+  <input type="text" id="inp">
+  <button id="btn">Done</button>
+  <script>
+    const boxes = document.querySelectorAll(".box")
+    const btn = document.querySelector("#btn")
+    const input = document.querySelector("#inp")
+    let ar = []
+    let obj = {}
+    btn.addEventListener("click", (e) => {
+      boxes.forEach(box => {
+        if (box.style.backgroundColor == "black")
+          ar.push(1)
+        else
+          ar.push(0)
+        box.style.backgroundColor = "white"
+      })
+      obj[input.value] = ar
+      ar = []
+      input.value = ""
+      console.log(obj)
+    })
+    console.log(boxes)
+    boxes.forEach(box => {
+      box.addEventListener("click", (e) => {
+        if (box.style.backgroundColor == "black")
+          box.style.backgroundColor = "white"
+        else
+          box.style.backgroundColor = "black"
+      })
+    })
+  </script>
+</body>
+
+</html>
