@@ -25,7 +25,6 @@ exports.generate = async function generate(arguments) {
           day = 1
         }
         else {
-
           day++
         }
       } else if (month == 2) {
@@ -33,16 +32,13 @@ exports.generate = async function generate(arguments) {
           month++
           day = 1
         } else {
-
           day++
         }
-      }
-      else {
+      } else {
         if (day == 30) {
           month++
           day = 1
         } else {
-
           day++
         }
       }
@@ -66,7 +62,6 @@ exports.generate = async function generate(arguments) {
       }
     }
   }
-  console.log(date)
 }
 
 
@@ -76,15 +71,13 @@ function calculateStartDay(wordLength, month, year) {
 
   let day = Math.floor((daysInWeek - wordLength) * letterWidth / 2 * 7 + daysInWeek)
   let dayInWeek = whatDay(day, month, year)
+  console.log(day, dayInWeek)
   let startingDay = day - dayInWeek
   return startingDay
 }
 
 function whatDay(day, month, year) {
-  let date = new Date();
-  date.setFullYear(year);
-  date.setMonth(month);
-  date.setDate(day);
+  let date = new Date(`${year}-${month}-${day}`);
   return date.getDay()
 }
 
