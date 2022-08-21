@@ -13,10 +13,10 @@ exports.generate = async function generate(arguments) {
     let day = calculateStartDay(word.length, month, year)
     let date = `${year}-${month}-${day}`
     let splittedWord = word.split("")
+    console.log(date)
     for (let i = 0; i < word.length; ++i) {
       console.log(splittedWord[i] + "  is done.")
       for (let j = 0; j < 49; ++j) {
-        console.log(date)
         if (!letters[splittedWord[i]][j]) {
           for (let k = 0; k < 1; ++k) {
             // fs.writeFileSync("fileName", JSON.stringify(Math.random()))
@@ -79,7 +79,7 @@ function calculateStartDay(wordLength, month, year) {
   while (whatDay(day, month, year) != 0) {
     day++
   }
-  return day + 1
+  return day
 }
 
 function whatDay(day, month, year) {
