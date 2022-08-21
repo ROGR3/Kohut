@@ -7,6 +7,7 @@ Kohut is a simple CLI tool written in NodeJS for creating next level github cont
 Kohut is the first tool that let's you write text to your contributions graph. It's free and easy to use.
 
 Just look how cute logo you can write on your github *mainpage*.
+These are my github contributions in year 2003. [https://github.com/Borecjeborec1](https://github.com/Borecjeborec1?tab=overview&from=2003-12-01&to=2003-12-31)
 <img src="./assets/white-atzuki.png" width="80%"/>
 <img src="./assets/black-atzuki.png" width="80%"/>
 
