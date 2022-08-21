@@ -82,7 +82,7 @@ function calculateStartDay(wordLength, month, year) {
   console.log(day, month, year)
   let dayInWeek = whatDay(day, month, year)
   console.log(dayInWeek)
-  let startingDay = day - dayInWeek < 0 ? day + (dayInWeek - day) : day - dayInWeek
+  let startingDay = day - dayInWeek < 0 ? day + (daysInWeek - dayInWeek) : day - dayInWeek
   return { day: startingDay, month }
 }
 
