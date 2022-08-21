@@ -1,4 +1,6 @@
-# Kohut 
+<center>
+  <img src="./assets/kohut-logo.svg" width="80%"/>
+</center>
 
 ## What is Kohut?
 Kohut is a simple CLI tool written in NodeJS for creating next level github contribution graphs. 
