@@ -9,7 +9,8 @@ exports.generate = async function generate(arguments) {
   console.log("If you want to change or cancel, press CTRL+C. You have 10 seconds.")
   setTimeout(() => {
     console.log("starting")
-    let { day, month } = calculateStartDay(word.length, 1, year)
+    let month = 1
+    let day = calculateStartDay(word.length, month, year)
     let date = `${year}-${month}-${day}`
     let splittedWord = word.split("")
     for (let i = 0; i < word.length; ++i) {
@@ -17,15 +18,15 @@ exports.generate = async function generate(arguments) {
       for (let j = 0; j < 49; ++j) {
         if (!letters[splittedWord[i]][j]) {
           for (let k = 0; k < 1; ++k) {
-            fs.writeFileSync("fileName", JSON.stringify(Math.random()))
-            execSync(`git add .`);
-            execSync(`git commit -m "${date}" --date="${date}"`);
+            // fs.writeFileSync("fileName", JSON.stringify(Math.random()))
+            // execSync(`git add .`);
+            // execSync(`git commit -m "${date}" --date="${date}"`);
           }
         } else {
           for (let k = 0; k < 4; ++k) {
-            fs.writeFileSync("fileName", JSON.stringify(Math.random()))
-            execSync(`git add .`);
-            execSync(`git commit -m "${date}" --date="${date}"`);
+            // fs.writeFileSync("fileName", JSON.stringify(Math.random()))
+            // execSync(`git add .`);
+            // execSync(`git commit -m "${date}" --date="${date}"`);
           }
         }
         //
@@ -66,24 +67,19 @@ exports.generate = async function generate(arguments) {
       }
     }
     console.log("Deploying to github")
-    execSync(`git push`);
+    // execSync(`git push`);
     console.log("Done")
   }, 10)
 }
 
 
 function calculateStartDay(wordLength, month, year) {
-  const letterWidth = 7
   const daysInWeek = 7
-
-  let day = Math.floor((daysInWeek - wordLength + 1) * letterWidth / 2 * 7 + daysInWeek)
-  month = Math.floor((day % 365) / 30) + 1;
-  day = Math.floor((day % 365) % 7) + 1;
-  console.log(day, month, year)
-  let dayInWeek = whatDay(day, month, year)
-  console.log(dayInWeek)
-  let startingDay = day - dayInWeek < 0 ? day + (daysInWeek - dayInWeek) : day - dayInWeek
-  return { day: startingDay, month }
+  let day = 1
+  while (whatDay(day, month, year) != 0) {
+    day++
+  }
+  return day
 }
 
 function whatDay(day, month, year) {
