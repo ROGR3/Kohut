@@ -5,33 +5,27 @@ const letters = JSON.parse(fs.readFileSync(__dirname + "/lettersSorted.json", "u
 exports.generate = async function generate(arguments) {
   const word = arguments[0]
   const year = arguments[1]
-  // if (word.length != 7) {
-  //   console.log("now it needs to be 7 letters long")
-  //   return
-  // }
   console.log("Display " + word + " in year " + year)
   console.log("If you want to change or cancel, press CTRL+C. You have 10 seconds.")
   setTimeout(() => {
     console.log("starting")
-    let month = 1
-    let day = calculateStartDay(word.length, month, year)
+    let { day, month } = calculateStartDay(word.length, 1, year)
     let date = `${year}-${month}-${day}`
     let splittedWord = word.split("")
     for (let i = 0; i < word.length; ++i) {
-      console.log(date)
       console.log(splittedWord[i] + "  is done.")
       for (let j = 0; j < 49; ++j) {
         if (!letters[splittedWord[i]][j]) {
           for (let k = 0; k < 1; ++k) {
-            // fs.writeFileSync("fileName", JSON.stringify(Math.random()))
-            // execSync(`git add .`);
-            // execSync(`git commit -m "${date}" --date="${date}"`);
+            fs.writeFileSync("fileName", JSON.stringify(Math.random()))
+            execSync(`git add .`);
+            execSync(`git commit -m "${date}" --date="${date}"`);
           }
         } else {
           for (let k = 0; k < 4; ++k) {
-            // fs.writeFileSync("fileName", JSON.stringify(Math.random()))
-            // execSync(`git add .`);
-            // execSync(`git commit -m "${date}" --date="${date}"`);
+            fs.writeFileSync("fileName", JSON.stringify(Math.random()))
+            execSync(`git add .`);
+            execSync(`git commit -m "${date}" --date="${date}"`);
           }
         }
         //
@@ -72,9 +66,9 @@ exports.generate = async function generate(arguments) {
       }
     }
     console.log("Deploying to github")
-    // execSync(`git push`);
+    execSync(`git push`);
     console.log("Done")
-  }, 10000)
+  }, 10)
 }
 
 
@@ -83,9 +77,13 @@ function calculateStartDay(wordLength, month, year) {
   const daysInWeek = 7
 
   let day = Math.floor((daysInWeek - wordLength + 1) * letterWidth / 2 * 7 + daysInWeek)
+  month = Math.floor((day % 365) / 30);
+  day = Math.floor((day % 365) % 7);
+  console.log(day, month, year)
   let dayInWeek = whatDay(day, month, year)
-  let startingDay = day - dayInWeek
-  return startingDay
+  console.log(dayInWeek)
+  let startingDay = day - dayInWeek < 0 ? day + (dayInWeek - day) : day - dayInWeek
+  return { day: startingDay, month }
 }
 
 function whatDay(day, month, year) {
