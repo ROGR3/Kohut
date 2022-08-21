@@ -5,10 +5,10 @@ const letters = JSON.parse(fs.readFileSync(__dirname + "/lettersSorted.json", "u
 exports.generate = async function generate(arguments) {
   const word = arguments[0]
   const year = arguments[1]
-  if (word.length != 7) {
-    console.log("now it needs to be 7 letters long")
-    return
-  }
+  // if (word.length != 7) {
+  //   console.log("now it needs to be 7 letters long")
+  //   return
+  // }
   console.log("Display " + word + " in year " + year)
   console.log("If you want to change or cancel, press CTRL+C. You have 10 seconds.")
   setTimeout(() => {
@@ -34,6 +34,7 @@ exports.generate = async function generate(arguments) {
             execSync(`git commit -m "${date}" --date="${date}"`);
           }
         }
+        //
         if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
           if (day == 31) {
             month++
@@ -43,12 +44,22 @@ exports.generate = async function generate(arguments) {
             day++
           }
         } else if (month == 2) {
-          if (day == 28) {
-            month++
-            day = 1
+          if (isLeapYear(year)) {
+            if (day == 29) {
+              month++
+              day = 1
+            } else {
+              day++
+            }
           } else {
-            day++
+            if (day == 28) {
+              month++
+              day = 1
+            } else {
+              day++
+            }
           }
+
         } else {
           if (day == 30) {
             month++
@@ -82,3 +93,6 @@ function whatDay(day, month, year) {
   return date.getDay()
 }
 
+function isLeapYear(year) {
+  return (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0));
+}
