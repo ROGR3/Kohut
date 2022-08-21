@@ -1,4 +1,4 @@
-<img src="./assets/kohut.svg" width="60%"/>
+<img src="https://raw.githubusercontent.com/Borecjeborec1/Kohut/5283ca484e96af76d1c6815a5933b64a976cfc34/assets/kohut.svg" width="60%"/>
 
 ## What is Kohut?
 Kohut is a simple CLI tool written in NodeJS for creating next level github contribution graphs. 
@@ -8,8 +8,8 @@ Kohut is the first tool that let's you write text to your contributions graph. I
 
 Just look how cute logo you can write on your github *mainpage*.
 These are my github contributions in year 2003. [https://github.com/Borecjeborec1](https://github.com/Borecjeborec1?tab=overview&from=2003-12-01&to=2003-12-31)
-<img src="./assets/white-atzuki.png" width="80%"/>
-<img src="./assets/black-atzuki.png" width="80%"/>
+<img src="https://github.com/Borecjeborec1/Kohut/blob/main/assets/white-atzuki.png?raw=true" width="80%"/>
+<img src="https://github.com/Borecjeborec1/Kohut/blob/main/assets/black-atzuki.png?raw=true" width="80%"/>
 
 ## How can I use it?
 Easily, just follow these 4 steps.

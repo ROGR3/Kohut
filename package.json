@@ -1,6 +1,6 @@
 {
   "name": "kohut",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "create 2d text into your github contributions",
   "main": "index.js",
   "bin": {
