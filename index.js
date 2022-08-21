@@ -11,10 +11,10 @@ exports.generate = async function generate(arguments) {
 
   let month = 1
   let day = calculateStartDay(month, year)
-
   let date = `${year}-${month}-${day}`
 
   let splittedWord = word.split("")
+
   for (let i = 0; i < word.length; ++i) {
     console.log(splittedWord[i] + "  is done.")
     for (let j = 0; j < 49; ++j) {
@@ -40,11 +40,20 @@ exports.generate = async function generate(arguments) {
           day++
         }
       } else if (month == 2) {
-        if (day == 28) {
-          month++
-          day = 1
+        if (isLeapYear(year)) {
+          if (day == 29) {
+            month++
+            day = 1
+          } else {
+            day++
+          }
         } else {
-          day++
+          if (day == 28) {
+            month++
+            day = 1
+          } else {
+            day++
+          }
         }
       } else {
         if (day == 30) {
