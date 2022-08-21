@@ -102,7 +102,9 @@ exports.generate = async function generate(arguments) {
         date = `${year}-${month}-${day}`
       }
     }
+    console.log("Pushing to GitHub")
     execSync(`git push`);
+    console.log("Done!")
   }, 7000)
 }
 
