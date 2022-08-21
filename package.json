@@ -1,12 +1,20 @@
 {
   "name": "kohut",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "create 2d text into your github contributions",
   "main": "index.js",
   "bin": {
     "kohut": "bin/index.js"
   },
-  "keywords": [],
+  "keywords": [
+    "github",
+    "git",
+    "text",
+    "kohut",
+    "contributions",
+    "commit",
+    "graphs"
+  ],
   "author": "borecjeborec1",
   "license": "MIT"
 }
