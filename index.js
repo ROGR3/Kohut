@@ -13,7 +13,6 @@ exports.generate = async function generate(arguments) {
   console.log("If you want to change or cancel, press CTRL+C. You have 10 seconds.")
   setTimeout(() => {
     console.log("starting")
-    let randomContent = JSON.stringify(Math.random())
     let month = 1
     let day = calculateStartDay(word.length, month, year)
     let date = `${year}-${month}-${day}`
@@ -24,7 +23,7 @@ exports.generate = async function generate(arguments) {
       for (let j = 0; j < 49; ++j) {
         if (!letters[splittedWord[i]][j]) {
           for (let k = 0; k < 1; ++k) {
-            fs.writeFileSync("fileName", randomContent)
+            fs.writeFileSync("fileName", JSON.stringify(Math.random()))
             execSync(`git add .`);
             execSync(`git commit -m "${date}" --date="${date}"`);
           }
