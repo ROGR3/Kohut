@@ -18,15 +18,15 @@ exports.generate = async function generate(arguments) {
       for (let j = 0; j < 49; ++j) {
         if (!letters[splittedWord[i]][j]) {
           for (let k = 0; k < 1; ++k) {
-            // fs.writeFileSync("fileName", JSON.stringify(Math.random()))
-            // execSync(`git add .`);
-            // execSync(`git commit -m "${date}" --date="${date}"`);
+            fs.writeFileSync("fileName", JSON.stringify(Math.random()))
+            execSync(`git add .`);
+            execSync(`git commit -m "${date}" --date="${date}"`);
           }
         } else {
           for (let k = 0; k < 4; ++k) {
-            // fs.writeFileSync("fileName", JSON.stringify(Math.random()))
-            // execSync(`git add .`);
-            // execSync(`git commit -m "${date}" --date="${date}"`);
+            fs.writeFileSync("fileName", JSON.stringify(Math.random()))
+            execSync(`git add .`);
+            execSync(`git commit -m "${date}" --date="${date}"`);
           }
         }
         //
@@ -67,14 +67,13 @@ exports.generate = async function generate(arguments) {
       }
     }
     console.log("Deploying to github")
-    // execSync(`git push`);
+    execSync(`git push`);
     console.log("Done")
   }, 10)
 }
 
 
 function calculateStartDay(wordLength, month, year) {
-  const daysInWeek = 7
   let day = 1
   while (whatDay(day, month, year) != 0) {
     day++
