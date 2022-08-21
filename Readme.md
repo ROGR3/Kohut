@@ -1,6 +1,4 @@
-<center>
-  <img src="./assets/kohut-logo.svg" width="80%"/>
-</center>
+<img src="./assets/kohut-logo.svg" width="60%"/>
 
 ## What is Kohut?
 Kohut is a simple CLI tool written in NodeJS for creating next level github contribution graphs. 
@@ -9,11 +7,50 @@ Kohut is a simple CLI tool written in NodeJS for creating next level github cont
 Kohut is the first tool that let's you write text to your contributions graph. It's free and easy to use.
 
 Just look how cute logo you can write on your github *mainpage*.
-<center>
-  <img src="./assets/white-atzuki.png" width="80%"/>
-</center>
-<center>
-  <img src="./assets/black-atzuki.png" width="80%"/>
-</center>
+<img src="./assets/white-atzuki.png" width="80%"/>
+<img src="./assets/black-atzuki.png" width="80%"/>
 
 ## How can I use it?
+Easily, just follow these 5 steps.
+
+1) [Create GitHub repo](#1-create-github-repo)
+2) [Initialize the new repo](#2-initialize-the-new-repo)
+3) [Download kohut](#3-download-kohut)
+4) [Running the Kohut](#4-running-the-kohut)
+
+
+*Steps 1 and 2 are just normal GitHub repo creating, you can skip them and use existing repo, or create it your own way.*
+
+#### 1) Create Github repo
+Navigate to this page [https://github.com/new](https://github.com/new) and create a new repo. Fill out the form and click create. *It can be private repo as well.*
+
+#### 2) Initialize the new repo
+When you create the new repo a bunch of commands jumps into your face on GitHub website. Follow them. Create folder, open terminal and paste the commands there. When you are done you should have folder with readme.md inside on your local machine. The same folder structure should appear on GitHub page too.
+
+The commands should look like this:
+```
+echo "# ds" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/gymplgames/ds.git
+git push -u origin main
+```
+
+#### 3) Download Kohut
+If you have NodeJS installed, download the Kohut package from npm using 
+```npm i -g kohut```
+
+#### 4) Running the Kohut
+You are nearly done. 1 last step to do. Open terminal in your folder where you have your git initialized and execute kohut command.
+```
+kohut [text] [year] 
+```
+In my case it's 
+```
+kohut atzuki 2003
+```
+Wait a few seconds and you are done!
+
+Good Job! You should have your text written inside contribution graph on your main page.
