@@ -12,6 +12,7 @@ exports.generate = async function generate(arguments) {
   console.log("Display " + word + " in year " + year)
   console.log("If you want to change or cancel, press CTRL+C. You have 10 seconds.")
   setTimeout(() => { }, 10000)
+  let randomContent = JSON.stringify(Math.random())
   let month = 1
   let day = calculateStartDay(word.length, month, year)
   let date = `${year}-${month}-${day}`
@@ -22,15 +23,15 @@ exports.generate = async function generate(arguments) {
     for (let j = 0; j < 49; ++j) {
       if (!letters[splittedWord[i]][j]) {
         for (let k = 0; k < 1; ++k) {
-          fs.writeFileSync("fileName", JSON.stringify(Math.random()))
+          fs.writeFileSync("fileName", randomContent)
           execSync(`git add .`);
-          execSync(`git commit -m "idk what am I doing" --date="${date}"`);
+          execSync(`git commit -m "${randomContent}" --date="${date}"`);
         }
       } else {
         for (let k = 0; k < 4; ++k) {
           fs.writeFileSync("fileName", JSON.stringify(Math.random()))
           execSync(`git add .`);
-          execSync(`git commit -m "idk what am I doing" --date="${date}"`);
+          execSync(`git commit -m "${randomContent}" --date="${date}"`);
         }
       }
       if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
@@ -59,7 +60,9 @@ exports.generate = async function generate(arguments) {
       date = `${year}-${month}-${day}`
     }
   }
+  console.log("Deploying to github")
   execSync(`git push`);
+  console.log("Done")
 }
 
 
@@ -67,7 +70,7 @@ function calculateStartDay(wordLength, month, year) {
   const letterWidth = 7
   const daysInWeek = 7
 
-  let day = Math.floor((daysInWeek - wordLength) * letterWidth / 2 * 7 + daysInWeek)
+  let day = Math.floor((daysInWeek - wordLength + 1) * letterWidth / 2 * 7 + daysInWeek)
   let dayInWeek = whatDay(day, month, year)
   let startingDay = day - dayInWeek
   return startingDay
