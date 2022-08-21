@@ -8,7 +8,7 @@ exports.generate = async function generate(arguments) {
     return
   }
   if (arguments[0] == "-h" || arguments[0] == "--help") {
-    console.log("\x1b[33mKohut\x1b[0m v" + version)
+    console.log("\x1b[32mKohut\x1b[0m v" + version)
     console.log("Usage: kohut [text] [year]")
     console.log("       kohut [string] [integer]")
     console.log()
@@ -30,7 +30,7 @@ exports.generate = async function generate(arguments) {
   }
   const word = arguments[0]
   const year = arguments[1]
-  console.log("Display \x1b[33m" + word + "\x1b[0m in year \x1b[33m" + year + "\x1b[0m")
+  console.log("Display \x1b[32m" + word + "\x1b[0m in year \x1b[32m" + year + "\x1b[0m")
   console.log("If you want to change or cancel, press \x1b[100mCTRL+C\x1b[0m")
   let counter = 6
   let intId = setInterval(() => {

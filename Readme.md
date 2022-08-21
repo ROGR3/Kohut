@@ -1,4 +1,4 @@
-<img src="./assets/kohut-logo.svg" width="60%"/>
+<img src="./assets/kohut.svg" width="60%"/>
 
 ## What is Kohut?
 Kohut is a simple CLI tool written in NodeJS for creating next level github contribution graphs. 
@@ -11,7 +11,7 @@ Just look how cute logo you can write on your github *mainpage*.
 <img src="./assets/black-atzuki.png" width="80%"/>
 
 ## How can I use it?
-Easily, just follow these 5 steps.
+Easily, just follow these 4 steps.
 
 1) [Create GitHub repo](#1-create-github-repo)
 2) [Initialize the new repo](#2-initialize-the-new-repo)
@@ -40,7 +40,10 @@ git push -u origin main
 
 #### 3) Download Kohut
 If you have NodeJS installed, download the Kohut package from npm using 
-```npm i -g kohut```
+
+```
+npm i -g kohut
+```
 
 #### 4) Running the Kohut
 You are nearly done. 1 last step to do. Open terminal in your folder where you have your git initialized and execute kohut command.
@@ -54,3 +57,8 @@ kohut atzuki 2003
 Wait a few seconds and you are done!
 
 Good Job! You should have your text written inside contribution graph on your main page.
+
+
+## How does it work?
+Basicly Kohut takes initialized repo and create a file called *fileName*. Then kohut makes changes in it *(concretly rewrites random number)* and assign commit date to a date mapped from a [letters hashmap](./letters.json).
+
