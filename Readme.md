@@ -58,7 +58,19 @@ Wait a few seconds and you are done!
 
 Good Job! You should have your text written inside contribution graph on your main page.
 
+> **Warning!**
+Kohut is not supposed to spam GitHub servers or harass someone. Please do not abuse it that way. It's use case is only for fun and aesthetics.
 
 ## How does it work?
 Basicly Kohut takes initialized repo and create a file called *fileName*. Then kohut makes changes in it *(concretly rewrites random number)* and assign commit date to a date mapped from a [letters hashmap](./letters.json).
+
+## Future features?
+I will try to implement more features in future.
+
+Planned features:
+* reversed option (reverse the text colors)
+* more letters/numbers/languages (currently supports only A-Z and 0-9)
+* some sort of image mapping maybe
+
+This project is open-source, feel free to contribute.
 
