@@ -77,8 +77,8 @@ function calculateStartDay(wordLength, month, year) {
   const daysInWeek = 7
 
   let day = Math.floor((daysInWeek - wordLength + 1) * letterWidth / 2 * 7 + daysInWeek)
-  month = Math.floor((day % 365) / 30);
-  day = Math.floor((day % 365) % 7);
+  month = Math.floor((day % 365) / 30) + 1;
+  day = Math.floor((day % 365) % 7) + 1;
   console.log(day, month, year)
   let dayInWeek = whatDay(day, month, year)
   console.log(dayInWeek)
