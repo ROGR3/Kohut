@@ -78,7 +78,7 @@ function calculateStartDay(wordLength, month, year) {
   while (whatDay(day, month, year) != 0) {
     day++
   }
-  return day
+  return day + 1
 }
 
 function whatDay(day, month, year) {
