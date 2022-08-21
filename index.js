@@ -25,13 +25,13 @@ exports.generate = async function generate(arguments) {
         for (let k = 0; k < 1; ++k) {
           fs.writeFileSync("fileName", randomContent)
           execSync(`git add .`);
-          execSync(`git commit -m "${randomContent}" --date="${date}"`);
+          execSync(`git commit -m "${date}" --date="${date}"`);
         }
       } else {
         for (let k = 0; k < 4; ++k) {
           fs.writeFileSync("fileName", JSON.stringify(Math.random()))
           execSync(`git add .`);
-          execSync(`git commit -m "${randomContent}" --date="${date}"`);
+          execSync(`git commit -m "${date}" --date="${date}"`);
         }
       }
       if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
