@@ -1,12 +1,37 @@
 const { execSync } = require('child_process');
-const fs = require("fs")
+const fs = require("fs");
+const { version } = require("./package.json");
 const letters = JSON.parse(fs.readFileSync(__dirname + "/lettersSorted.json", "utf-8"))
-
 exports.generate = async function generate(arguments) {
+  if (arguments[0] == "-v" || arguments[0] == "--version") {
+    console.log("v" + version)
+    return
+  }
+  if (arguments[0] == "-h" || arguments[0] == "--help") {
+    console.log("\x1b[33mKohut\x1b[0m v" + version)
+    console.log("Usage: kohut [text] [year]")
+    console.log("       kohut [string] [integer]")
+    console.log()
+    console.log("Options: Coming soon!")
+    return
+  }
+  if (!arguments[0] || !arguments[1]) {
+    console.log("You need to pass 'Text' value and a 'year' value. \nTry something like:\x1b[100m kohut atzuki 2003 \x1b[0m")
+    return
+  }
+  if (arguments[0].length > 7) {
+    console.log("Text property cannot have more than 7 letters!")
+    return
+  }
+  if (!isInt(arguments[1])) {
+    console.log("Year argument has to be an integer")
+    console.log(arguments[1] + " is not an integer")
+    return
+  }
   const word = arguments[0]
   const year = arguments[1]
   console.log("Display \x1b[33m" + word + "\x1b[0m in year \x1b[33m" + year + "\x1b[0m")
-  console.log("If you want to change or cancel, press CTRL+C.")
+  console.log("If you want to change or cancel, press \x1b[100mCTRL+C\x1b[0m")
   let counter = 6
   let intId = setInterval(() => {
     counter--
@@ -98,7 +123,9 @@ function whatDay(day, month, year) {
 function isLeapYear(year) {
   return (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0));
 }
-
+function isInt(value) {
+  return !isNaN(value) && (function (x) { return (x | 0) === x; })(parseFloat(value))
+}
 function printProgress(progress) {
   process.stdout.clearLine();
   process.stdout.cursorTo(0);
