@@ -46,6 +46,9 @@ If you have NodeJS installed, download the Kohut package from npm using
 npm i -g kohut
 ```
 
+Otherwise download the binary from [Github Releases](https://github.com/Borecjeborec1/Kohut/releases). 
+Windows, Linux and MacOS are supported.
+
 #### 4) Running the Kohut
 You are nearly done. 1 last step to do. Open terminal in your folder where you have your git initialized and execute kohut command.
 ```
@@ -60,7 +63,7 @@ Wait a few seconds and you are done!
 Good Job! You should have your text written inside contribution graph on your main page.
 
 > **Warning!**
-Kohut is not supposed to spam GitHub servers or harass someone. Please do not abuse it that way. It's use case is only for fun and aesthetics.
+Kohut is not supposed to spam GitHub servers or harass someone. Please do not abuse it that way.
 
 ## How does it work?
 Basicly Kohut takes initialized repo and create a file called *fileName*. Then kohut makes changes in it *(concretly rewrites random number)* and assign commit date to a date mapped from a [letters hashmap](./letters.json).
