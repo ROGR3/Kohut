@@ -1,7 +1,7 @@
 <img src="https://raw.githubusercontent.com/Borecjeborec1/Kohut/5283ca484e96af76d1c6815a5933b64a976cfc34/assets/kohut.svg" width="60%"/>
 
 ## What is Kohut?
-Kohut is a simple CLI tool written in NodeJS for creating next level github contribution graphs. 
+Kohut is a **worlds first** application for creating text inside your github graphs.
 
 ## Why Kohut?
 Kohut is the first tool that let's you write text to your contributions graph. It's free and easy to use.
